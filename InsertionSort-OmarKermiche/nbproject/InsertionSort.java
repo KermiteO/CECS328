@@ -1,15 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*************************************************************************
+ * NAME         : OMAR KERMICHE
+ * CLASS/SECTION: CECS 328/TU/THUR 5:00-5:50
+ * ASSIGNMENT   : LAB 1-INSERTION SORT
+ * DATE         : 2/3/20
+ *************************************************************************/
 package insertionsort;
 
-public class InsertionSort {
+/*
+steps for passing through cmd:
+C:\Users\kermi>cd C:\MyFolder
 
+C:\MyFolder>javac -d . InsertionSort.java
+
+C:\MyFolder>java insertionsort.InsertionSort apple test going zebra aardvark
+*/
+class InsertionSort 
+{
     Node head = null;
     int listSize = 0;
-    class Node
+    public class Node
     {
         Node prev = null;
         String text;
@@ -45,10 +54,12 @@ public class InsertionSort {
         Node    ptr   = head;
         Node    foundedNode = null;
               
+        //search double link list until nth node is found
         while(!found && count <= listSize)
         {
             if(count == n)
             {
+                //once found, set return node to pointer
                 found = true;
                 foundedNode = ptr;
             }
@@ -62,6 +73,8 @@ public class InsertionSort {
     
     public void reverseList()
     {
+        //Purpose of this function is to reverse the contents of link list to 
+        //match the input exactly the way it was passed 
         Node ptr = head;
         int j = 0;
         String[] arr = new String[listSize];
@@ -81,6 +94,8 @@ public class InsertionSort {
     
     public void shiftKey(String key)
     {
+        //shift the key to its new position after all the other nodes have been
+        //shifted to the right
         boolean found = false;
         Node ptr = head;
         
@@ -120,6 +135,8 @@ public class InsertionSort {
     
     public void sort()
     {
+        //where the actual insertion sort happens and every other method is
+        //used just for the purpose of making this function work
         String [] keys = new String[listSize];
         
         for(int i = 0; i < listSize; i++)
@@ -154,6 +171,7 @@ public class InsertionSort {
         doubleLinkList.reverseList();
 
         doubleLinkList.sort();
+        System.out.println();
         for(int i = 1; i <= doubleLinkList.listSize; i++)
         {
             System.out.print(doubleLinkList.getNthNode(i).text + " ");
